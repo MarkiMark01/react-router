@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MoviesSearch from "./MoviesSearch";
 import { searchPosts } from "../../services/fetchMovies";
-import PostList from "../../PostLIst/PostList";
+import PostList from "../../PostList/PostList";
 import "../../styles/style.css";
 
 const Movies = () => {
