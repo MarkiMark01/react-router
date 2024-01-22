@@ -1,56 +1,63 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getMovieCast } from "../../services/fetchMovies";
+import React, { useState, useEffect } from "react";
+import { fetchMovies } from "../../services/fetchMovies";
+import "../../styles/style.css";
+import PostList from "../../PostList/PostList";
 
-const MovieCast = () => {
-  const [movieCast, setMovieCast] = useState([]);
-  const { id: movieId } = useParams();
+const Home = () => {
+  const [state, setState] = useState({
+    items: [],
+    isLoading: false,
+    error: null,
+    page: 1,
+  });
 
   useEffect(() => {
-    const movieCastFetch = async () => {
+    const fetchPosts = async () => {
+      setState((prevState) => ({
+        ...prevState,
+        isLoading: true,
+      }));
       try {
-        const data = await getMovieCast(movieId);
-        setMovieCast(data);
+        const result = await fetchMovies(state.page);
+        setState((prevState) => ({
+          ...prevState,
+          items: [...prevState.items, ...result.results],
+        }));
       } catch (error) {
-        console.log(error);
+        setState((prevState) => ({
+          ...prevState,
+          error,
+        }));
+      } finally {
+        setState((prevState) => ({
+          ...prevState,
+          isLoading: false,
+        }));
       }
     };
-    if (movieId) {
-      movieCastFetch();
-    }
-  }, [movieId]);
+    fetchPosts();
+  }, [state.page]);
 
-  const { cast } = movieCast;
+  const handleLoadMore = () => {
+    setState((prevState) => ({
+      ...prevState,
+      page: prevState.page + 1,
+    }));
+  };
 
-  const element = cast?.map(({ cast_id, name, character, profile_path }) => (
-    <li key={cast_id}>
-      {profile_path ? (
-        <img
-          src={`https://image.tmdb.org/t/p/w185${profile_path}`}
-          alt={name}
-        />
-      ) : (
-        <img
-          src={
-            "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
-          }
-          alt={name}
-          width={185}
-        />
-      )}
-      <div>
-        <p>{name}</p>
-        <p>
-          <span>as</span> {character}
-        </p>
-      </div>
-    </li>
-  ));
-  return cast && cast.length > 0 ? (
-    <ul>{element}</ul>
-  ) : (
-    <p>Unfortunately, there is no information about the actors yet...</p>
+  const { items, isLoading, error } = state;
+
+  return (
+    <div className="container">
+      <h1>Movie List</h1>
+      {items.length > 0 && <PostList items={items} />}
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <button type="button" onClick={handleLoadMore}>
+        Load more
+      </button>
+    </div>
   );
 };
 
-export default MovieCast;
+export default Home;
