@@ -1,4 +1,3 @@
-import "../../styles/style.css";
 import { useState } from "react";
 
 const MoviesSearch = ({ onSubmit }) => {

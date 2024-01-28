@@ -21,3 +21,14 @@
 .link.active {
   background-color: #ff6b0a;
 }
+.container2 {
+  display: flex;
+  list-style: none;
+}
+.list {
+  text-decoration: none;
+}
+.homeTitle {
+  margin: 10px 10px 10px 20px;
+  font-size: 30px;
+}

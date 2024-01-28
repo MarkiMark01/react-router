@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../services/fetchMovies";
-import "../../styles/style.css";
 
 const Reviews = () => {
   const [state, setState] = useState({

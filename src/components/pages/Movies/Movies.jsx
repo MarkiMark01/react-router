@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 import MoviesSearch from "./MoviesSearch";
 import { searchPosts } from "../../services/fetchMovies";
 import PostList from "../../PostList/PostList";
-import "../../styles/style.css";
 
 const Movies = () => {
   const [state, setState] = useState({

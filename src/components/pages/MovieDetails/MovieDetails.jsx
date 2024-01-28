@@ -7,7 +7,6 @@ import {
   Outlet,
   useLocation,
 } from "react-router-dom";
-import "../../styles/style.css";
 
 const MovieDetails = () => {
   const [state, setState] = useState({

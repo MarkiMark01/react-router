@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchMovies } from "../../services/fetchMovies";
-import "../../styles/style.css";
 import PostList from "../../PostList/PostList";
+import styles from "../../styles/styles.module.css";
 
 const Home = () => {
   const [state, setState] = useState({
@@ -49,7 +49,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1>Movie List</h1>
+      <h1 className={styles.homeTitle}>Movie List</h1>
       {items.length > 0 && <PostList items={items} />}
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
