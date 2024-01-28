@@ -72,20 +72,24 @@ const MovieDetails = () => {
           <p>{error}</p>
         ) : (
           <>
-            {items.poster_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`}
-                alt={items.title}
-              />
-            )}
-            <h2>{items.title}</h2>
+            <div className={styles.boxMD}>
+              {items.poster_path && (
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`}
+                  alt={items.title}
+                />
+              )}
+              <div>
+                <h2>{items.title}</h2>
 
-            <ul>
-              <span>Genres:</span> {genres || "no information"}
-            </ul>
+                <ul>
+                  <span>Genres:</span> {genres || "no information"}
+                </ul>
 
-            <p>{items.overview}</p>
-            <p>Rating: {items.vote_average}</p>
+                <p>{items.overview}</p>
+                <p>Rating: {items.vote_average}</p>
+              </div>
+            </div>
             <div>
               <div>
                 <Link state={{ from }} to={`/movies/${id}/reviews`}>
