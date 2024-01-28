@@ -82,14 +82,16 @@ const MovieDetails = () => {
                 />
               )}
               <div className={styles.describeMD}>
-                <h2>{items.title}</h2>
+                <span className={styles.titleMD}>{items.title}</span>
 
-                <ul>
-                  <span>Genres:</span> {genres || "no information"}
+                <ul className={styles.listDescribe}>
+                  <span>Genres: {genres || "no information"}</span>
                 </ul>
 
-                <p>{items.overview}</p>
-                <p>Rating: {items.vote_average}</p>
+                <span style={{ textAlign: "justify" }}>{items.overview}</span>
+                <span className={styles.rating}>
+                  Rating: {items.vote_average}
+                </span>
               </div>
             </div>
             <div>
