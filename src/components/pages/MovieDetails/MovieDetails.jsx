@@ -94,14 +94,22 @@ const MovieDetails = () => {
                 </span>
               </div>
             </div>
-            <div>
-              <div>
-                <Link state={{ from }} to={`/movies/${id}/reviews`}>
+            <div className={styles.links}>
+              <div className={styles.linkMD}>
+                <Link
+                  state={{ from }}
+                  to={`/movies/${id}/reviews`}
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
                   Reviews
                 </Link>
               </div>
-              <div>
-                <Link state={{ from }} to={`/movies/${id}/cast`}>
+              <div className={styles.linkMD}>
+                <Link
+                  state={{ from }}
+                  to={`/movies/${id}/cast`}
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
                   Cast
                 </Link>
               </div>
