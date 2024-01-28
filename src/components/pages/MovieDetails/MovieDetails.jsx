@@ -77,9 +77,11 @@ const MovieDetails = () => {
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`}
                   alt={items.title}
+                  width={500}
+                  height={500}
                 />
               )}
-              <div>
+              <div className={styles.describeMD}>
                 <h2>{items.title}</h2>
 
                 <ul>
