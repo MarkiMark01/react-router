@@ -113,8 +113,8 @@ const MovieDetails = () => {
                   Cast
                 </Link>
               </div>
-              <Outlet />
             </div>
+            <Outlet />
           </>
         )}
       </div>

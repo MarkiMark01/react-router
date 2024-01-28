@@ -147,3 +147,24 @@ img {
 .linkMD:hover {
   background-color: #ff6b0a;
 }
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.reviewsUser {
+  font-size: 18px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+}
+.reviewsContent {
+  margin: 0;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../services/fetchMovies";
+import styles from "../../styles/styles.module.css";
 
 const Reviews = () => {
   const [state, setState] = useState({
@@ -42,15 +43,15 @@ const Reviews = () => {
   const { items, isLoading, error } = state;
 
   return (
-    <div className="container">
-      <h2>Reviews</h2>
+    <div className={styles.reviews}>
+      {/* <h2>Reviews</h2> */}
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {items.length > 0 ? (
         items.map((item, index) => (
           <div key={index}>
-            <p>User: {item.author}</p>
-            <p>{item.content}</p>
+            <p className={styles.reviewsUser}>User: {item.author}</p>
+            <p className={styles.reviewsContent}>{item.content}</p>
           </div>
         ))
       ) : (
