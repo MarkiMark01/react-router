@@ -37,9 +37,11 @@
   font-size: 19px;
   font-family: "Montserrat Alternates", sans-serif;
 }
+
 .list:hover {
   color: #ff6b0a;
 }
+
 .homeTitle {
   margin: 10px 0 0 28px;
   font-size: 30px;
@@ -53,5 +55,7 @@
   font-size: 14px;
   background-color: #011ea0ff;
   color: #fff;
-  border: 0px;
+  border: 0px solid #ff6b0a;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
 }
