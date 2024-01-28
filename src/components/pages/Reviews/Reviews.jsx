@@ -44,7 +44,6 @@ const Reviews = () => {
 
   return (
     <div className={styles.reviews}>
-      {/* <h2>Reviews</h2> */}
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {items.length > 0 ? (
