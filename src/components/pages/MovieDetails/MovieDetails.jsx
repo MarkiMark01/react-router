@@ -7,6 +7,7 @@ import {
   Outlet,
   useLocation,
 } from "react-router-dom";
+import styles from "../../styles/styles.module.css";
 
 const MovieDetails = () => {
   const [state, setState] = useState({
@@ -58,44 +59,50 @@ const MovieDetails = () => {
   const genres = items.genres?.map((genre) => genre.name).join(", ");
 
   return (
-    <div className="container">
-      <button onClick={goBack}>Go Back</button>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        <>
-          {items.poster_path && (
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`}
-              alt={items.title}
-            />
-          )}
-          <h2>{items.title}</h2>
+    <>
+      <div className={styles.buttonMD}>
+        <button onClick={goBack} className={styles.btnMD}>
+          Go Back
+        </button>
+      </div>
+      <div className={styles.containerMD}>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <>
+            {items.poster_path && (
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`}
+                alt={items.title}
+              />
+            )}
+            <h2>{items.title}</h2>
 
-          <ul>
-            <span>Genres:</span> {genres || "no information"}
-          </ul>
+            <ul>
+              <span>Genres:</span> {genres || "no information"}
+            </ul>
 
-          <p>{items.overview}</p>
-          <p>Rating: {items.vote_average}</p>
-          <div>
+            <p>{items.overview}</p>
+            <p>Rating: {items.vote_average}</p>
             <div>
-              <Link state={{ from }} to={`/movies/${id}/reviews`}>
-                Reviews
-              </Link>
+              <div>
+                <Link state={{ from }} to={`/movies/${id}/reviews`}>
+                  Reviews
+                </Link>
+              </div>
+              <div>
+                <Link state={{ from }} to={`/movies/${id}/cast`}>
+                  Cast
+                </Link>
+              </div>
+              <Outlet />
             </div>
-            <div>
-              <Link state={{ from }} to={`/movies/${id}/cast`}>
-                Cast
-              </Link>
-            </div>
-            <Outlet />
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 };
 
