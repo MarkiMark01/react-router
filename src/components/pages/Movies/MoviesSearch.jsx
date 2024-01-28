@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../../styles/styles.module.css";
 
 const MoviesSearch = ({ onSubmit }) => {
   const [state, setState] = useState({
@@ -30,16 +31,19 @@ const MoviesSearch = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.inputSearch}>
       <input
         onChange={handleChange}
         name="search"
         value={state.search}
-        // placeholder="search"
+        placeholder="Search movies"
         required
+        className={styles.input}
       ></input>
 
-      <button type="submit">Search</button>
+      <button type="submit" className={styles.btnSearch}>
+        Search
+      </button>
     </form>
   );
 };

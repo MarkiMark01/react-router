@@ -24,7 +24,7 @@ const MovieCast = () => {
   const { cast } = movieCast;
 
   const element = cast?.map(({ cast_id, name, character, profile_path }) => (
-    <li key={cast_id}>
+    <li key={cast_id} className={styles.castLi}>
       {profile_path ? (
         <img
           src={`https://image.tmdb.org/t/p/w185${profile_path}`}

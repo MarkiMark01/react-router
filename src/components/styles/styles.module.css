@@ -15,11 +15,13 @@
   padding: 6px 10px;
   color: #ffffff;
   text-decoration: none;
-  font-size: 21px;
-  font-weight: 600;
+  font-size: 20px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
 }
 .link.active {
   background-color: #ff6b0a;
+  border-radius: 20px;
 }
 .container2 {
   display: flex;
@@ -203,4 +205,32 @@ img {
   width: 200px;
   height: 300px;
   margin: 5px;
+}
+.inputSearch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+  margin: 10px auto;
+}
+.input {
+  border-radius: 20px;
+  outline: none;
+  border: 2px solid #031d33;
+}
+.input::placeholder {
+  padding-left: 5px;
+}
+.btnSearch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #031d33;
+  border-radius: 20px;
+  font-size: 12px;
+  width: 65px;
+  height: 25px;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 500;
+  color: #fff;
 }
