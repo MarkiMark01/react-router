@@ -53,7 +53,7 @@ const Home = () => {
       {items.length > 0 && <PostList items={items} />}
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <button type="button" onClick={handleLoadMore}>
+      <button type="button" onClick={handleLoadMore} className={styles.btnHome}>
         Load more
       </button>
     </div>

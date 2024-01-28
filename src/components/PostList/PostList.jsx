@@ -9,7 +9,7 @@ const PostList = ({ items }) => {
       <Link
         state={{ from: location }}
         to={`/movies/${id}`}
-        style={{ textDecoration: "none" }}
+        style={{ textDecoration: "none", color: "#031d33" }}
       >
         {title}
       </Link>
